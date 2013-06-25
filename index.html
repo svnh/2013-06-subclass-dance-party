@@ -62,16 +62,13 @@
           lineUpDancers();
         });
 
-        var strobeStatus = false;
-
         $(".strobeLightButton").on("click", function(event){
           strobeStatus = !strobeStatus;
           if(strobeStatus) {
             $(".strobeLightButton").text("Turn off Strobe");
-            strobeStrobe(strobeStatus);
+            strobeStrobe();
           } else {
             $(".strobeLightButton").text("Strobe Light!");
-            strobeStrobe(strobeStatus);
           }
         });
       });
