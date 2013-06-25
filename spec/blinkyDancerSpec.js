@@ -58,8 +58,8 @@ describe("fadedDancer", function() {
   });
 
   it("should have an animate function that makes it fade", function() {
-    spyOn($(".swirly"), 'animate');
+    spyOn(fadedDancer.$node, 'animate');
     fadedDancer.step();
-    expect($(".swirly").animate).toHaveBeenCalled();
+    expect(fadedDancer.$node.animate).toHaveBeenCalled();
   });
 });

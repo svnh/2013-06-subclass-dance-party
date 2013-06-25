@@ -1,10 +1,11 @@
-var FadedDancer = function(top, left){
-  this.$node = $('<span class="image-dancer"><img src="swirl.gif" class="swirly" /></span>');
-  this._timeBetweenSteps = 150;
-  this.step();
+var FadedDancer = function(top, left, timeBetweenSteps){
+  Dancer.call(this, top, left, timeBetweenSteps);
+  this.$node = $('<img src="swirl.gif" class="swirly" />');
   this.setPosition(top, left);
   this._keepDancing = true;
   this._top = top;
+  this._timeBetweenSteps = timeBetweenSteps;
+  this.step();
 };
 
 FadedDancer.prototype = Object.create(Dancer.prototype);
@@ -16,43 +17,34 @@ FadedDancer.prototype.step = function(){
 
   oldStep.call(this, this._timeBetweenSteps);
 
-  var swirlyImg = $(".swirly");
-  var swirlySpan = $(".image-dancer");
+  var swirlyBird = this.$node;
 
   if(this._keepDancing === false) {
-    swirlyImg.stop(true, true, true);
-    swirlySpan.stop(true, true, true);
+    swirlyBird.stop(true, true, true);
     var styleSettings = {
-      left: '10px',
-      opacity: '1',
-      top: this._top
-    };
-    this.$node.css(styleSettings);
-    swirlyImg.css({
       width: '50px',
       height: '50px',
+      left: '10px',
+      top: this._top,
       opacity:'1'
-    });
+    };
+    this.$node.css(styleSettings);
   } else {
     var moveDist = '25px';
 
-    swirlyImg.animate({
+    swirlyBird.animate({
       width: '100px',
       height: '100px',
+      left: '-=' + moveDist,
+      top: '-=' + moveDist,
       opacity:'-=0.75'
     });
-    swirlySpan.animate({
-      left: '-=' + moveDist,
-      top: '-=' + moveDist
-    });
-    swirlyImg.animate({
+    swirlyBird.animate({
       width: '50px',
       height: '50px',
-      opacity:'+=0.75'
-    });
-    swirlySpan.animate({
       left: '+=' + moveDist,
-      top: '+=' + moveDist
+      top: '+=' + moveDist,
+      opacity:'+=0.75'
     });
   }
 };
