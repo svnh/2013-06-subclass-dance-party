@@ -47,7 +47,7 @@
 
           // make a dancer with a random position
           var dancer = new dancerMakerFunction(
-            $("body").height() * Math.random(),
+            ($("body").height() * Math.random())+15,
             $("body").width() * Math.random(),
             Math.random() * 2000
           );
