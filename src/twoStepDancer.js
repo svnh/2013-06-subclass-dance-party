@@ -10,8 +10,13 @@ var oldStep = TwoStepDancer.prototype.step;
 TwoStepDancer.prototype.step = function(){
     oldStep.call(this, this._timeBetweenSteps);
 
-    this.$node.animate({
-      left: '+=50',
-      opacity: "toggle"
-    },"slow");
+  this.$node.animate({
+    opacity:'1'
+  },"fast");
+  this.$node.animate({
+    left: '+=250'
+  },"fast");
+  this.$node.animate({
+    left: '-=250'
+  },"fast");
 };
