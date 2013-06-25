@@ -8,15 +8,22 @@ TwoStepDancer.prototype.constructor = TwoStepDancer;
 var oldStep = TwoStepDancer.prototype.step;
 
 TwoStepDancer.prototype.step = function(){
-    oldStep.call(this, this._timeBetweenSteps);
+  oldStep.call(this, this._timeBetweenSteps);
+
+  var moveDistance = Math.random()*75;
 
   this.$node.animate({
     opacity:'1'
   },"fast");
   this.$node.animate({
-    left: '+=150'
+    left: '+=' + moveDistance,
+    opacity:'.25'
+  },"fast");
+    this.$node.animate({
+    opacity:'1'
   },"fast");
   this.$node.animate({
-    left: '-=150'
+    left: '-=' + moveDistance,
+    opacity:'.25'
   },"fast");
 };

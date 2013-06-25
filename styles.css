@@ -22,6 +22,10 @@ body, a:link, a:visited, a:active{
 }
 .dancer{
   border:30px solid blue;
-  border-radius:30px;
+  border-radius: 0px;
   position:absolute;
+}
+
+.image-dancer {
+  border: 0px;
 }

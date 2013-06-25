@@ -16,7 +16,7 @@ Dancer.prototype.step = function(){
 
     setTimeout(function(){            //  why do we need anonymous function instead of self.step?
       self.step();
-    }, this._timeBetweenSteps );
+    }, this._timeBetweenSteps);
 };
 
 Dancer.prototype.setPosition = function(top, left){
