@@ -6,6 +6,7 @@
     <script src="lib/jquery.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
     <script src="src/dancer.js"></script>
+    <script src="src/danceFloor.js"></script>
     <script src="src/blinkyDancer.js"></script>
     <script src="src/twoStepDancer.js"></script>
     <script src="src/fadedDancer.js"></script>
@@ -17,6 +18,7 @@
     <div class="topbar">
       <span class="title">object dance party</span>
       <a href="#" class="positionDancerButton" data-dancer-maker-function-name="lineUpDancers">Line Up Dancers</a>
+      <a href="#" class="strobeLightButton" data-dancer-maker-function-name="strobeLight">Strobe Light!</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a dancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="TwoStepDancer">add a two stepper</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="FadedDancer">add faded</a>
@@ -55,10 +57,13 @@
 
           $('body').append(dancer.$node);
         });
+
         $(".positionDancerButton").on("click", function(event){
-          _.each(window.dancers, function(dancer){
-            dancer.lineUp(10);
-          });
+          lineUpDancers();
+        });
+
+        $(".strobeLightButton").on("click", function(event){
+          strobeStrobe();
         });
       });
     </script>

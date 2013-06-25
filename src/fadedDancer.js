@@ -2,7 +2,6 @@ var FadedDancer = function(top, left, timeBetweenSteps){
   Dancer.call(this, top, left, timeBetweenSteps);
   this.$node = $('<img src="swirl.gif" class="swirly" />');
   this.setPosition(top, left);
-  this._keepDancing = true;
   this._top = top;
   this._timeBetweenSteps = timeBetweenSteps;
   this.step();
@@ -20,11 +19,9 @@ FadedDancer.prototype.step = function(){
   var swirlyBird = this.$node;
 
   if(this._keepDancing === false) {
-    swirlyBird.stop(true, true, true);
     var styleSettings = {
       width: '50px',
       height: '50px',
-      left: '10px',
       top: this._top,
       opacity:'1'
     };
@@ -47,8 +44,4 @@ FadedDancer.prototype.step = function(){
       opacity:'+=0.75'
     });
   }
-};
-
-FadedDancer.prototype.lineUp = function(left){
-  this._keepDancing = false;
 };
