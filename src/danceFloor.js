@@ -11,7 +11,7 @@ var lineUpDancers = function() {
   });
 };
 
-var strobeStrobe = function(strobeStatus) {
+var strobeStrobe = function() {
   console.log(strobeStatus);
   if(strobeStatus) {
     $("body").css({'background-color': get_random_color()});
