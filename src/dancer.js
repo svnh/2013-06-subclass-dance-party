@@ -2,8 +2,12 @@
 var Dancer = function(top, left, timeBetweenSteps){
 
   // use jQuery to create an HTML <span> tag
-  this.$node = $('<span class="dancer"></span>');
+  this.$node = $('<div class="dancer"></div>');
   this._timeBetweenSteps = timeBetweenSteps;
+
+  var colour = get_random_color();
+  var styleSettings = { 'background-color': colour };
+  this.$node.css(styleSettings);
 
   this.step();
   this.setPosition(top, left);
@@ -23,6 +27,7 @@ Dancer.prototype.setPosition = function(top, left){
   /* Use css top and left properties to position our <span> tag
    * where it belongs on the page. See http://api.jquery.com/css/
    */
+
   var styleSettings = {
     top: top,
     left: left
@@ -35,4 +40,12 @@ Dancer.prototype.lineUp = function(left){
     left: left + 'px'
   };
   this.$node.css(styleSettings);
+};
+
+// helper function to generate random hex colors
+var get_random_color = function() {
+  function c() {
+    return Math.floor(Math.random()*256).toString(16);
+  }
+  return "#"+c()+c()+c();
 };

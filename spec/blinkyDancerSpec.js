@@ -18,23 +18,48 @@ describe("blinkyDancer", function() {
     blinkyDancer.step();
     expect(blinkyDancer.$node.toggle).toHaveBeenCalled();
   });
+});
 
-  describe("dance", function(){
+describe("twoStepDancer", function() {
+  var twoStepDancer;
+  var timeBetweenSteps = 100;
 
-    it("should call step periodically", function(){
-      spyOn(blinkyDancer, "step").andCallThrough();
-      // for crazy reasons, we need to let some time pass
-      // specifically, the spied-upon step function will not be called the first time around
-      jasmine.Clock.tick(timeBetweenSteps);
+  beforeEach(function() {
+    // sets up a way to delay this test -- used below
+    jasmine.Clock.useMock();
 
-      expect(blinkyDancer.step.callCount).toBe(0);
+    twoStepDancer = new TwoStepDancer(10, 20, timeBetweenSteps);
+  });
 
-      jasmine.Clock.tick(timeBetweenSteps);
-      expect(blinkyDancer.step.callCount).toBe(1);
+  it("should have a jQuery $node object", function(){
+    expect(twoStepDancer.$node).toEqual(jasmine.any(jQuery));
+  });
 
-      jasmine.Clock.tick(timeBetweenSteps);
-      expect(blinkyDancer.step.callCount).toBe(2);
-    });
+  it("should have an animate function that makes it two-step", function() {
+    spyOn(twoStepDancer.$node, 'animate');
+    twoStepDancer.step();
+    expect(twoStepDancer.$node.animate).toHaveBeenCalled();
+  });
+});
 
+describe("fadedDancer", function() {
+  var fadedDancer;
+  var timeBetweenSteps = 100;
+
+  beforeEach(function() {
+    // sets up a way to delay this test -- used below
+    jasmine.Clock.useMock();
+
+    fadedDancer = new FadedDancer(10, 20, timeBetweenSteps);
+  });
+
+  it("should have a jQuery $node object", function(){
+    expect(fadedDancer.$node).toEqual(jasmine.any(jQuery));
+  });
+
+  it("should have an animate function that makes it fade", function() {
+    spyOn($(".swirly"), 'animate');
+    fadedDancer.step();
+    expect($(".swirly").animate).toHaveBeenCalled();
   });
 });
