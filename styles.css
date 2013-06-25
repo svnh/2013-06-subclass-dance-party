@@ -8,11 +8,19 @@ body{
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
+  font-family: helvetica;
+  font-size: 12px;
 }
-.title, .addDancerButton{
-  padding:5px 12px;
+.title, .addDancerButton {
+  padding:10px 12px;
   float:right;
 }
+
+.positionDancerButton, .strobeLightButton{
+  padding:10px 12px;
+  float:left;
+}
+
 .topbar{
   height:32px;
   background-color: #555;
@@ -20,6 +28,12 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
+
+a:hover {
+  color: #F00;
+  box-shadow: 0 0 20px #333;
+}
+
 .dancer{
   border:30px;
   width:10px;
@@ -31,6 +45,13 @@ body, a:link, a:visited, a:active{
 .swirly {
   width: 50px;
   height: 50px;
+  border: 0px;
+  position:absolute;
+}
+
+.McHammer {
+  width: 82px;
+  height: 90px;
   border: 0px;
   position:absolute;
 }
