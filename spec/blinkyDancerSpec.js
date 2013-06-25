@@ -6,7 +6,7 @@ describe("blinkyDancer", function() {
     // sets up a way to delay this test -- used below
     jasmine.Clock.useMock();
 
-    blinkyDancer = new Dancer(10, 20, timeBetweenSteps);
+    blinkyDancer = new BlinkyDancer(10, 20, timeBetweenSteps);
   });
 
   it("should have a jQuery $node object", function(){
