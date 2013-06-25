@@ -14,9 +14,9 @@ TwoStepDancer.prototype.step = function(){
     opacity:'1'
   },"fast");
   this.$node.animate({
-    left: '+=250'
+    left: '+=150'
   },"fast");
   this.$node.animate({
-    left: '-=250'
+    left: '-=150'
   },"fast");
 };
