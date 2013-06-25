@@ -2,7 +2,7 @@ var TwoStepDancer = function(top, left, timeBetweenSteps){
   Dancer.call(this, top, left, timeBetweenSteps);
 };
 
-TwoStepDancer.prototype = new Dancer();
+TwoStepDancer.prototype = Object.create(Dancer.prototype);
 TwoStepDancer.prototype.constructor = TwoStepDancer;
 
 var oldStep = TwoStepDancer.prototype.step;

@@ -1,11 +1,11 @@
 var FadedDancer = function(top, left){
-  this.$node = $('<span class="image-dancer"><img src="swirl.gif" /></span>');
+  this.$node = $('<span class="image-dancer"><img src="swirl.gif" width= "50" height="50" /></span>');
   this._timeBetweenSteps = 150;
   this.step();
   this.setPosition(top, left);
 };
 
-FadedDancer.prototype = new Dancer();
+FadedDancer.prototype = Object.create(Dancer.prototype);
 FadedDancer.prototype.constructor = FadedDancer;
 
 var oldStep = FadedDancer.prototype.step;
