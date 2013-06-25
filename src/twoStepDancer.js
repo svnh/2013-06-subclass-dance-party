@@ -10,26 +10,26 @@ var oldStep = TwoStepDancer.prototype.step;
 TwoStepDancer.prototype.step = function(){
   oldStep.call(this, this._timeBetweenSteps);
 
-  var twoStepper = this.$node;
+  var thisDancer = this.$node;
 
   var moveDistance = Math.random()*75 + 'px';
 
   if(this._keepDancing) {
-    twoStepper.animate({
+    thisDancer.animate({
       opacity:'1'
     },"fast");
-    twoStepper.animate({
+    thisDancer.animate({
       left: '+=' + moveDistance,
       opacity:'.25'
     },"fast");
-      twoStepper.animate({
+      thisDancer.animate({
       opacity:'1'
     },"fast");
-    twoStepper.animate({
+    thisDancer.animate({
       left: '-=' + moveDistance,
       opacity:'.25'
     },"fast");
   } else {
-    twoStepper.stop(true, true);
+    thisDancer.stop(true, true);
   }
 };

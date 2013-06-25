@@ -16,7 +16,7 @@ FadedDancer.prototype.step = function(){
 
   oldStep.call(this, this._timeBetweenSteps);
 
-  var swirlyBird = this.$node;
+  var thisDancer = this.$node;
 
   if(this._keepDancing === false) {
     var styleSettings = {
@@ -29,14 +29,14 @@ FadedDancer.prototype.step = function(){
   } else {
     var moveDist = '25px';
 
-    swirlyBird.animate({
+    thisDancer.animate({
       width: '100px',
       height: '100px',
       left: '-=' + moveDist,
       top: '-=' + moveDist,
       opacity:'-=0.75'
     });
-    swirlyBird.animate({
+    thisDancer.animate({
       width: '50px',
       height: '50px',
       left: '+=' + moveDist,
