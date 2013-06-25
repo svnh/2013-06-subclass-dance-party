@@ -11,6 +11,10 @@ var lineUpDancers = function() {
   });
 };
 
-var strobeStrobe = function() {
-  $("body").css({'background-color': '#000'});
+var strobeStrobe = function(strobeStatus) {
+  console.log(strobeStatus);
+  if(strobeStatus) {
+    $("body").css({'background-color': get_random_color()});
+    setTimeout(function(){ strobeStrobe(strobeStatus) ;}, 100);
+  }
 };
