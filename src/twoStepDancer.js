@@ -11,7 +11,6 @@ TwoStepDancer.prototype.step = function(){
   oldStep.call(this, this._timeBetweenSteps);
 
   var thisDancer = this.$node;
-
   var moveDistance = Math.random()*75 + 'px';
 
   if(this._keepDancing) {

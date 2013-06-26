@@ -10,7 +10,7 @@ var oldStep = SquareDancer.prototype.step;
 SquareDancer.prototype.step = function(){
   oldStep.call(this, 100);
 
-  thisDancer = this.$node;
+  var thisDancer = this.$node;
   var corners = Math.random()*30;
 
   if(this._keepDancing) {
@@ -21,6 +21,10 @@ SquareDancer.prototype.step = function(){
       'border-radius': '-=' + corners
     });
   } else{
+    var styleSettings = {
+      'border-radius': '0px'
+    };
+    thisDancer.css(styleSettings);
     thisDancer.stop(true, true);
   }
 };

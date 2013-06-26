@@ -36,10 +36,13 @@ a:hover {
 
 .dancer{
   border:30px;
-  width:10px;
-  height:10px;
+  width:30px;
+  height:30px;
   border-radius: 0px;
   position:absolute;
+}
+
+.dancer-posleft {
 }
 
 .swirly {
