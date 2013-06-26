@@ -9,6 +9,11 @@ var lineUpDancers = function() {
   _.each(window.dancers, function(dancer){
     dancer.lineUp(10);
   });
+
+  var stopHammerTime = new HammerTime();
+  $("body").append(stopHammerTime.$node);
+
+  // /setTimeout(stopHammerTime,5000);
 };
 
 var strobeStatus = false;
